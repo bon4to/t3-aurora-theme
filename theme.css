@@ -1,0 +1,224 @@
+.dark {
+  --aurora-grid: linear-gradient(90deg, #000 1px, transparent 1px), linear-gradient(0deg, #000 1px, transparent 1px);
+  --aurora-art-width: max(1920px, 100vw, calc(100dvh * 16 / 9));
+  --aurora-dot: calc(var(--aurora-art-width) / 480);
+  --aurora-sheen-edge: inset 0 -14px 22px -16px #64ccff8c, inset 0 1px 0 #ffffff0a;
+  --aurora-art: url(__ART__);
+}
+
+.dark[data-theme-id] {
+  --primary: #72c6ec !important;
+  --primary-foreground: #081921 !important;
+  --accent: #7ac8ed24 !important;
+  --accent-foreground: #f0faff !important;
+}
+
+.dark,
+.dark [data-app-sidebar],
+.dark [data-workspace-area="settings-nav"] {
+  --sidebar-row-hover: #aae3ff14 !important;
+  --sidebar-row-active: #aae3ff1f !important;
+  --sidebar-row-selected: #7ac8ed29 !important;
+}
+
+.dark [data-slot="sidebar-wrapper"] {
+  background: #000;
+  isolation: isolate;
+}
+
+.dark [data-slot="sidebar-wrapper"]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: var(--aurora-grid), var(--aurora-art);
+  background-size: var(--aurora-dot) var(--aurora-dot), var(--aurora-dot) var(--aurora-dot), var(--aurora-art-width) auto;
+  background-position: right bottom;
+  background-repeat: repeat, repeat, no-repeat;
+  image-rendering: pixelated;
+  will-change: transform;
+}
+
+.dark [data-chat-canvas] {
+  background: #0000 !important;
+}
+
+.dark [data-chat-canvas]:has(.messages-timeline-scroll) {
+  background: #000000b3 !important;
+}
+
+.dark [data-side-chat-pane] [data-chat-canvas] {
+  background: #0000 !important;
+}
+
+.dark [data-workspace-area="panel"],
+.dark [data-workspace-area="pull-requests"] {
+  background: #03030ad1 !important;
+  border-color: #ffffff12 !important;
+}
+
+.dark [data-slot="dialog-popup"][data-app-modal] {
+  background-color: #000 !important;
+  background-image: linear-gradient(#03030ad1, #03030ad1), var(--aurora-grid), var(--aurora-art) !important;
+  background-size: 100% 100%, var(--aurora-dot) var(--aurora-dot), var(--aurora-dot) var(--aurora-dot), var(--aurora-art-width) auto !important;
+  background-position: 0 0, right bottom, right bottom, right bottom !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat, repeat, repeat, no-repeat !important;
+  border-color: #ffffff12 !important;
+  image-rendering: pixelated;
+}
+
+.dark [data-slot="dialog-popup"][data-app-modal] > * {
+  image-rendering: auto;
+}
+
+.dark [data-slot="sidebar-inset"],
+.dark [data-slot="sidebar-inset"] > div,
+.dark [data-chat-canvas] [data-workspace-area="conversation"],
+.dark [data-chat-canvas] [data-timeline-loading],
+.dark [data-chat-canvas] .messages-timeline-scroll,
+.dark [data-chat-canvas] [data-chat-composer-form],
+.dark [data-workspace-area="panel"] [class~="bg-background"],
+.dark [data-workspace-area="panel"] [class~="bg-card"],
+.dark [data-settings-page-scroll],
+.dark [data-workspace-area="pull-requests"] header {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+.dark [data-slot="sidebar-container"] {
+  border-right-color: #0d1316 !important;
+}
+
+.dark [data-slot="sidebar-inner"] {
+  background-color: color-mix(in srgb, #050c10 max(22%, var(--glass-opacity) * 1.9 - 90%), transparent) !important;
+  background-image: none !important;
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+}
+
+.dark [data-thread-item] [aria-current="page"] {
+  background: linear-gradient(90deg, #7ac8ed52, #6fdaff1f 60%, #6fdaff00) !important;
+  box-shadow: var(--aurora-sheen-edge) !important;
+  border-color: transparent !important;
+  border-radius: 10px !important;
+}
+
+.dark [data-chat-header] {
+  background: #03030abd !important;
+}
+
+.dark [data-chat-column]:not(:has(.messages-timeline-scroll)) [data-chat-header] {
+  background: transparent !important;
+}
+
+.dark [data-chat-canvas]:not(:has(.messages-timeline-scroll)) [data-chat-composer-stack]::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: min(60vw, 760px);
+  height: min(46vh, 420px);
+  transform: translate(-50%, -92%);
+  z-index: -2;
+  background: radial-gradient(closest-side, #000000b8, #00000066 55%, transparent);
+  pointer-events: none;
+}
+
+.dark [data-user-message-bubble] {
+  background: linear-gradient(90deg, #7ac8ed3d, #6fdaff1a 60%, #6fdaff0a), #08161d9e !important;
+  box-shadow: var(--aurora-sheen-edge) !important;
+  border-radius: 14px !important;
+}
+
+.dark [data-slot="composer-shell"]::before {
+  background-image: linear-gradient(100deg, #7ac8ed1a, #6fdaff08 55%, transparent 80%);
+}
+
+.dark [data-chat-canvas]:not(:has(.messages-timeline-scroll)) [data-slot="composer-host"]::before {
+  background-color: color-mix(in srgb, #09181f max(62%, var(--glass-opacity)), #0000) !important;
+}
+
+.dark [data-chat-canvas]:has(.messages-timeline-scroll) [data-slot="composer-shell"]::before,
+.dark [data-chat-canvas]:not(:has(.messages-timeline-scroll)) [data-slot="composer-host"]::before {
+  background-image: linear-gradient(90deg, #7ac8ed30, #6fdaff12 60%, #6fdaff05) !important;
+  box-shadow: inset 0 -18px 28px -20px #64ccff66, inset 0 1px 0 #ffffff0d;
+}
+
+.dark [data-slot="composer-context-strip"] {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+.dark [data-thread-details-card] {
+  background-image: linear-gradient(135deg, #7ac8ed24, #6fdaff0a 55%, transparent 85%) !important;
+  border-color: #aae3ff17 !important;
+  box-shadow: 0 18px 40px -26px #64ccff73 !important;
+}
+
+.dark [data-workspace-area="settings-nav"] {
+  background: #00000047 !important;
+  border-color: #ffffff0f !important;
+}
+
+.dark [data-workspace-area="settings-nav"] [data-slot="sidebar-menu-button"][data-active="true"] {
+  background: linear-gradient(90deg, #7ac8ed47, #6fdaff1a 60%, #6fdaff08) !important;
+  box-shadow: var(--aurora-sheen-edge) !important;
+}
+
+.dark [data-slot="toggle"][aria-pressed="true"],
+.dark [data-slot="switch"][data-checked] {
+  background: linear-gradient(90deg, #7ac8ed8c, #6fdaff33), #0a1e27 !important;
+  box-shadow: inset 0 -8px 14px -10px #9fe0ffcc, inset 0 1px 0 #ffffff14 !important;
+  border-color: transparent !important;
+}
+
+.dark [data-slot="toggle"][aria-pressed="true"],
+.dark [data-environment-identification="pill"] {
+  background: linear-gradient(90deg, #7ac8ed4c, #6fdaff1a), #0a1e27 !important;
+  color: #e2f5ff;
+  box-shadow: inset 0 -8px 14px -10px #64ccff99, inset 0 1px 0 #ffffff14 !important;
+}
+
+.dark [data-chat-composer-form] button[class~="bg-message-action"]:not(:disabled),
+.dark [data-chat-composer-form] button[class~="bg-destructive/90"] {
+  background: radial-gradient(100% 60% at 50% 0%, #ffffff1f, #0000 70%), linear-gradient(150deg, var(--aurora-key)), #0a1e27 !important;
+  box-shadow: inset 0 1px 0 #ffffff26, inset 0 -8px 14px -10px var(--aurora-key-glow), 0 0 0 1px var(--aurora-key-rim), 0 4px 14px -6px var(--aurora-key-glow) !important;
+  color: #f0faff !important;
+  --aurora-key: #7ac8ed80, #6fdaff26 60%, #359bcb26;
+  --aurora-key-glow: #9fe0ffcc;
+  --aurora-key-rim: #aae3ff33;
+}
+
+.dark [data-chat-composer-form] button[class~="bg-destructive/90"] {
+  --aurora-key: #e0648f80, #e0648f26 60%, #a8325e26;
+  --aurora-key-glow: #ff7aa6cc;
+  --aurora-key-rim: #ff9ebf33;
+}
+
+.dark [data-slot="switch-thumb"] {
+  background: #e2f5ff !important;
+}
+
+.dark [data-slot="popover-popup"],
+.dark [data-slot="menu-popup"] {
+  background: linear-gradient(160deg, #7ac8ed1f, #0000 45%), color-mix(in srgb, #09181f var(--glass-opacity), #0000) !important;
+  border-color: #aae3ff1f !important;
+  box-shadow: inset 0 1px 0 #ffffff0f, 0 24px 60px -20px #000000e6 !important;
+}
+
+.dark [data-app-modal] [style*="d) 30%"] {
+  background-color: #306e8a !important;
+}
+
+.dark [data-app-modal] [style*="d) 60%"] {
+  background-color: #65caf7 !important;
+}
+
+.dark [data-app-modal] [style*="d) 72%"] {
+  background-color: #9fe0ff !important;
+}
+
+.dark .composer-tiptap, .dark .chat-markdown-codeblock { font-family: "JetBrains Mono", "Cascadia Code", Consolas, monospace; }
