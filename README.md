@@ -2,7 +2,7 @@
 
 An Arch-inspired dark theme for [T3 Code](https://t3.codes). A cyan pixel aurora glows over a black terminal-style background, while menus, panels, messages, and controls keep a translucent glass finish.
 
-![Aurora TTY background](previews/t3-aurora.png)
+![Aurora TTY in T3 Code](previews/new-thread.png)
 
 ## Install
 
