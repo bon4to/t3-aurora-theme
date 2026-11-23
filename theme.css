@@ -4,6 +4,7 @@
   --aurora-dot: calc(var(--aurora-art-width) / 480);
   --aurora-sheen-edge: inset 0 -14px 22px -16px #64ccff8c, inset 0 1px 0 #ffffff0a;
   --aurora-art: url(__ART__);
+  --aurora-edge-gutter: 14px;
 }
 
 .dark[data-theme-id] {
@@ -29,7 +30,7 @@
 .dark [data-slot="sidebar-wrapper"]::before {
   content: "";
   position: fixed;
-  inset: 0;
+  inset: 0 var(--aurora-edge-gutter) 0 0;
   z-index: -1;
   pointer-events: none;
   background-image: var(--aurora-grid), var(--aurora-art);
@@ -37,7 +38,12 @@
   background-position: right bottom;
   background-repeat: repeat, repeat, no-repeat;
   image-rendering: pixelated;
-  will-change: transform;
+  filter: brightness(0.82) saturate(0.92);
+  will-change: transform, filter;
+}
+
+.dark [data-slot="sidebar-wrapper"]:has(.messages-timeline-scroll)::before {
+  filter: brightness(0.92) saturate(0.96);
 }
 
 .dark [data-chat-canvas] {
@@ -92,7 +98,7 @@
 }
 
 .dark [data-slot="sidebar-inner"] {
-  background-color: color-mix(in srgb, #050c10 max(22%, var(--glass-opacity) * 1.9 - 90%), transparent) !important;
+  background-color: color-mix(in srgb, #050c10 max(44%, var(--glass-opacity) * 1.9 - 90%), transparent) !important;
   background-image: none !important;
   backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
 }
